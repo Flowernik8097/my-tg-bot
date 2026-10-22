@@ -5,16 +5,11 @@ from aiogram.filters import CommandStart
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
-load_dotenv('.env')
 
-# Загружаем переменные из файла .env
-BOT_TOKEN = os.getenv("BOT_TOKEN")
 
-if not BOT_TOKEN:
-    raise ValueError("Токен не найден!")
-
-# Создаем объекты бота и диспетчера
-bot = Bot(token=BOT_TOKEN)
+TOKEN = os.getenv('BOT_TOKEN')
+if not TOKEN: raise ValueError("Токен не найден!")
+bot = Bot(token=TOKEN)
 dp = Dispatcher()
 
 # Словарь: текст кнопки -> ответ бота
